@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rigged Coin Flip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .coin-flip-container {
+            margin-top: 20px;
+        }
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Rigged Coin Flip</h1>
+    <p>Press <strong>Ctrl + F</strong> to trigger the flip (Heads or Tails)</p>
+
+    <div class="coin-flip-container">
+        <button class="button" id="flipBtn">Flip Coin</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // Define rigged outcomes
+        let outcome = "Heads"; // You can change this to "Tails" for different behavior
+
+        // Function to simulate the coin flip
+        function flipCoin() {
+            // Update the result based on the rigged outcome
+            document.getElementById("result").textContent = outcome;
+        }
+
+        // Event listener for the flip button
+        document.getElementById("flipBtn").addEventListener("click", flipCoin);
+
+        // Hotkey: Ctrl + F to trigger the flip
+        document.addEventListener("keydown", function(event) {
+            if (event.ctrlKey && event.key === "f") {
+                event.preventDefault(); // Prevent default browser behavior for Ctrl + F
+                flipCoin();
+            }
+        });
+    </script>
+
+</body>
+</html>
